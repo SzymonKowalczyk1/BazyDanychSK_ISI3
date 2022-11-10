@@ -37,7 +37,7 @@ INSERT INTO statek VALUES ('drakar','langskip','2022-11-09','4000');
  ALTER TABLE postac ADD COLUMN funkcja varchar(50) AFTER rodzaj;
 UPDATE postac set funkcja = 'Kapitan' WHERE id_postaci = 1;
 
-klcuz obc
+ALTER TABLE postac ADD FOREIGN KEY(id_postaci) REFERENCES statek(wlasciciel);
 
 DELETE FROM izba WHERE nazwa_izby = 'spizarnia';
 DROP TABLE izba;
