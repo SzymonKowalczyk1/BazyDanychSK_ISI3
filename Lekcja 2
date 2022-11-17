@@ -8,4 +8,18 @@ ALTER TABLE postac DROP PRIMARY KEY, CHANGE id_postaci id_postaci INT;
 ----------------------------------------------------------------------------------------
 ------------------------------Zadanie 2 ----------------------------------------------
 ALTER TABLE postac ADD Pesel varchar(11) NOT NULL FIRST;
-ALTER TABLE postac ALTER COLUMN pesel SET DEFAULT '98745612358';
+UPDATE postac SET Pesel='56785968512' WHERE id_postaci=1;
+UPDATE postac SET Pesel='15896745232' WHERE id_postaci=2;
+UPDATE postac SET Pesel='67485932145' WHERE id_postaci=4;
+UPDATE postac SET Pesel='12312312312' WHERE id_postaci=5;  
+UPDATE postac SET Pesel='77541269845' WHERE id_postaci=6;
+UPDATE postac SET Pesel='85749685221' WHERE id_postaci=9;
+ALTER TABLE postac ADD PRIMARY KEY(Pesel);
+ALTER TABLE postac MODIFY rodzaj enum('wiking','ptak','kobieta','syrena');
+INSERT INTO postac VALUES ('98745632181','10','Gertruda Nieszczera','syrena',DEFAULT,'2000-04-04','22',DEFAULT);
+==============================================================================================
+----------------------------Zadanie 3-------------------------------------------------------
+UPDATE postac SET statek='CzarnaPerla' WHERE nazwa LIKE '%a%';
+UPDATE statek SET data_wodowania='1999-10-30' WHERE nazwa_statku='CzarnaPerla';
+UPDATE statek SET max_ladownosc = (max_ladownosc * 0.7) WHERE YEAR(data_wodowania) BETWEEN 1901 AND 2000;
+ALTER TABLE postac ADD CHECK (wiek<1000);
