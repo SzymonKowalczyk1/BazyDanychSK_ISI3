@@ -37,7 +37,10 @@ INSERT INTO statek VALUES ('drakar','langskip','2022-11-09','4000');
  ALTER TABLE postac ADD COLUMN funkcja varchar(50) AFTER rodzaj;
 UPDATE postac set funkcja = 'Kapitan' WHERE id_postaci = 1;
 
-ALTER TABLE postac ADD FOREIGN KEY(id_postaci) REFERENCES statek(wlasciciel);
+ALTER TABLE postac ADD COLUMN statek VARCHAR(40);
+ALTER TABLE postac ADD FOREIGN KEY (statek) REFERENCES statek(nazwa_statku);
+UPDATE postac SET statek='CzarnaPerla' WHERE rodzaj='wiking';
+UPDATE postac SET statek='drakar' WHERE nazwa='drozd';
 
 DELETE FROM izba WHERE nazwa_izby = 'spizarnia';
 DROP TABLE izba;
