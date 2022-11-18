@@ -23,3 +23,9 @@ UPDATE postac SET statek='CzarnaPerla' WHERE nazwa LIKE '%a%';
 UPDATE statek SET data_wodowania='1999-10-30' WHERE nazwa_statku='CzarnaPerla';
 UPDATE statek SET max_ladownosc = (max_ladownosc * 0.7) WHERE YEAR(data_wodowania) BETWEEN 1901 AND 2000;
 ALTER TABLE postac ADD CHECK (wiek<1000);
+======================================================================================================
+------------------------Zadanie 4----------------------------------------------------
+ALTER TABLE postac MODIFY rodzaj enum('wiking','ptak','kobieta','syrena','waz');
+INSERT INTO postac VALUES ('98547632141','11','Loko','waz',NULL,'2001-06-28','21',NULL);
+UPDATE postac SET id_postaci='11' WHERE nazwa='Loko';
+CREATE TABLE marynarz like postac;
