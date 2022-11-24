@@ -12,3 +12,10 @@
  SELECT * from zasob WHERE rodzaj = 'jedzenie';
  SELECT idZasobu, ilosc FROM ekwipunek WHERE idkreatury IN (1,3,5);
  =======================================================================
+=====================Zadanie 2==========================================
+SELECT * from kreatura WHERE NOT 'wiedzma' AND (udzwig >= 50);
+SELECT * from zasob WHERE waga BETWEEN 2 AND 5;
+SELECT * from kreatura WHERE nazwa LIKE '%or%' AND udzwig BETWEEN 30 AND 70;
+=========================================================================
+======================Zadanie 3==========================================
+
