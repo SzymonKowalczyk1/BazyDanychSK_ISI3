@@ -29,3 +29,24 @@ ALTER TABLE postac MODIFY rodzaj enum('wiking','ptak','kobieta','syrena','waz');
 INSERT INTO postac VALUES ('98547632141','11','Loko','waz',NULL,'2001-06-28','21',NULL);
 UPDATE postac SET id_postaci='11' WHERE nazwa='Loko';
 CREATE TABLE marynarz like postac;
+INSERT INTO marynarz select * FROM postac WHERE statek IS NOT NULL;
+ALTER TABLE marynarz ADD FOREIGN KEY (statek) REFERENCES statek(nazwa_statku);
+=========================================================================================================
+------------------------Zadanie 5-------------------------------------------------------------------------
+
+UPDATE marynarz SET statek = NULL WHERE id_postaci > 0;
+UPDATE postac SET statek = NULL WHERE id_postaci > 0;
+DELETE FROM postac WHERE nazwa = 'Wieslaw';
+DELETE FROM statek WHERE nazwa_statku = 'CzarnaPerla';
+DELETE FROM statek WHERE nazwa_statku = 'drakar';
+
+ALTER TABLE postac DROP CONSTRAINT postac_ibfk_1;
+ ALTER TABLE postac DROP CONSTRAINT postac_ibfk_2;
+ALTER TABLE marynarz DROP CONSTRAINT marynarz_ibfk_1;
+DROP TABLE statek;
+
+CREATE TABLE zwierz (id INT PRIMARY KEY AUTO_INCREMENT,nazwa VARCHAR(50),wiek INT);
+INSERT INTO zwierz (id,nazwa,wiek) SELECT id_postaci,nazwa,wiek FROM postac WHERE nazwa = 'Drozd' or nazwa = 'loko';
+======================================================================================================================================
+
+
