@@ -1,1 +1,6 @@
+--------------------------------Zadanie 1-----------------------------------------
+Select AVG(waga) AS 'srednia waga wikingow' FROM kreatura WHERE rodzaj = 'wiking';
+SELECT rodzaj, AVG(waga), COUNT(rodzaj) from kreatura GROUP BY rodzaj ORDER BY waga DESC;
 
+------------------------------Zadanie 2---------------------------------------------
+SELECT rodzaj, COUNT(waga) FROM zasob GROUP BY rodzaj ORDER BY waga DESC;
