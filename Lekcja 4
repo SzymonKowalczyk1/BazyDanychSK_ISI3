@@ -14,3 +14,9 @@ SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKr
 ON ekwipunek.idZasobu = zasob.idZasobu ORDER BY kreatura.nazwa ASC;
 
 SELECT kreatura.nazwa FROM kreatura LEFT JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury WHERE ekwipunek.idKreatury IS NULL;
+-------------------------------------------------------------------------------------------
+=========================Zadanie 4 ===========================================================
+SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu WHERE kreatura.rodzaj="wiking" AND YEAR(kreatura.dataUr) BETWEEN 1670 AND 1679;
+
+SELECT kreatura.nazwa FROM ekwipunek JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu JOIN kreatura ON kreatura.idKreatury=ekwipunek.idKreatury WHERE zasob.rodzaj="jezdzenie" ORDER BY kreatura.dataUr DESC LIMIT 5;
+
