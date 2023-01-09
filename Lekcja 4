@@ -19,4 +19,4 @@ SELECT kreatura.nazwa FROM kreatura LEFT JOIN ekwipunek ON kreatura.idKreatury =
 SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKreatury=ekwipunek.idKreatury JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu WHERE kreatura.rodzaj="wiking" AND YEAR(kreatura.dataUr) BETWEEN 1670 AND 1679;
 
 SELECT kreatura.nazwa FROM ekwipunek JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu JOIN kreatura ON kreatura.idKreatury=ekwipunek.idKreatury WHERE zasob.rodzaj="jezdzenie" ORDER BY kreatura.dataUr DESC LIMIT 5;
-
+SELECT kreatura1.nazwa, kreatura2.nazwa FROM kreatura kreatura1 JOIN kreatura kreatura2 ON kreatura1.idKreatury=kreatura2.idKreatury-5;
