@@ -20,3 +20,6 @@ SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKr
 
 SELECT kreatura.nazwa FROM ekwipunek JOIN zasob ON ekwipunek.idZasobu=zasob.idZasobu JOIN kreatura ON kreatura.idKreatury=ekwipunek.idKreatury WHERE zasob.rodzaj="jezdzenie" ORDER BY kreatura.dataUr DESC LIMIT 5;
 SELECT kreatura1.nazwa, kreatura2.nazwa FROM kreatura kreatura1 JOIN kreatura kreatura2 ON kreatura1.idKreatury=kreatura2.idKreatury-5;
+=================================================================================================
+==================================Zadanie 5=======================================================
+SELECT kreatura.rodzaj, avg(zasob.waga) AS waga FROM kreatura NATURAL JOIN ekwipunek JOIN zasob on zasob.idZasobu = ekwipunek.idZasobu GROUP BY kreatura.rodzaj HAVING kreatura.rodzaj != 'malpa' AND kreatura.rodzaj != 'waz' AND SUM(ekwipunek.ilosc) < 30;
