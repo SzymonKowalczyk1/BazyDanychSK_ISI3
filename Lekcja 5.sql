@@ -28,3 +28,8 @@ _------------------------------------ZADANIE 3 ---------------------------------
 -----------------------------------------------------------------------------------
 -------------------------------------ZADANIE 4--------------------------------------------
 SELECT wyprawa.nazwa, SUM(length(etapy_wyprawy.dziennik)) AS liczba_znakow FROM wyprawa JOIN etapy_wyprawy ON etapy_wyprawy.idWyprawy = wyprawa.id_wyprawy GROUP BY wyprawa.nazwa HAVING liczba_znakow < 400;
+
+
+
+
+SELECT wyprawa.nazwa, ROUND (SUM(zasob.waga * zasob.ilosc) / COUNT(DISTINCT uczestnicy.id_uczestnika),1)as srednia_waga_zasobow FROM ekwipunek INNER JOIN zasob on ekwipunek.idZasobu = zasob.idZasobu RIGHT JOIN uczestnicy ON ekwipunek.idKreatury = uczestnicy.id_uczestnika INNER JOIN wyprawa ON uczestnicy.id_wyprawy = wyprawa.id_wyprawy GROUP BY wyprawa.nazwa;
