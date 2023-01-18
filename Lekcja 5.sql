@@ -30,6 +30,9 @@ _------------------------------------ZADANIE 3 ---------------------------------
 SELECT wyprawa.nazwa, SUM(length(etapy_wyprawy.dziennik)) AS liczba_znakow FROM wyprawa JOIN etapy_wyprawy ON etapy_wyprawy.idWyprawy = wyprawa.id_wyprawy GROUP BY wyprawa.nazwa HAVING liczba_znakow < 400;
 
 
-
-
 SELECT wyprawa.nazwa, ROUND (SUM(zasob.waga * zasob.ilosc) / COUNT(DISTINCT uczestnicy.id_uczestnika),1)as srednia_waga_zasobow FROM ekwipunek INNER JOIN zasob on ekwipunek.idZasobu = zasob.idZasobu RIGHT JOIN uczestnicy ON ekwipunek.idKreatury = uczestnicy.id_uczestnika INNER JOIN wyprawa ON uczestnicy.id_wyprawy = wyprawa.id_wyprawy GROUP BY wyprawa.nazwa;
+
+----------------------------------------------------------------------------------------
+-----------------------------------Zadanie 5 -------------------------------------------
+SELECT wyprawa.nazwa AS nazwa_wyprawy, kreatura.nazwa AS nazwa_kreatury, DATEDIFF(wyprawa.data_rozpoczecia, kreatura.dataUr) as dni FROM kreatura INNER JOIN uczestnicy ON kreatura.idKreatury = uczestnicy.id_uczestnika INNER JOIN wyprawa ON uczestnicy.id_wyprawy = wyprawa.id_wyprawy INNER JOIN etapy_wyprawy ON wyprawa.id_wyprawy = etapy_wyprawy.idWyprawy WHERE etapy_wyprawy.sektor = 7;
+-----------------------------------------------------------------------------------------
