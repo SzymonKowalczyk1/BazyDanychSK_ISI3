@@ -4,7 +4,7 @@ CREATE TABLE postac (id_postaci INT AUTO_INCREMENT NOT NULL PRIMARY KEY, nazwa V
 INSERT INTO postac VALUES ('0','Bjorn','wiking','1970-08-30','50');
 INSERT INTO postac VALUES ('0','Drozda','ptak','2000-08-30','23');
 INSERT INTO postac VALUES ('0','Tesciowa','kobieta','1950-08-30','80');
-UPDATE postac SET wiek=88 WHERE wiek=80;
+UPDATE postac SET wiek = 88 WHERE nazwa = 'Tesciowa';
 -----------------------------------------------------------------------------
 ------------------------------Zadanie 2--------------------------------------
 CREATE TABLE walizka (id_walizki INT AUTO_INCREMENT PRIMARY KEY, pojemnosc INT UNSIGNED, kolor ENUM('rozowy','czerwony','teczowy','zolty'), id_wlasciciela INT, FOREIGN KEY(id_wlasciciela) REFERENCES POSTAC (id_postaci) ON DELETE CASCADE);
