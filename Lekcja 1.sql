@@ -20,6 +20,10 @@ INSERT INTO izba (adres_budynku,nazwa_izby,metraz,wlasciciel) VALUES ('Piotrowsk
 
 ------------------------------Zadanie 4--------------------------------------
 CREATE TABLE przetwory (id_przetworu INT PRIMARY KEY,rok_produkcji YEAR DEFAULT "1904",id_wykonawcy INT, FOREIGN KEY(id_wykonawcy) REFERENCES postac (id_postaci),zawartosc VARCHAR(50),dodatek VARCHAR(50) DEFAULT "papryczka chilli",id_konsumenta INT, FOREIGN KEY (id_konsumenta) REFERENCES postac (id_postaci));
+
+
+ CREATE TABLE przetwory (id_przetworu INT PRIMARY KEY, rok_produkcji YEAR DEFAULT '1654',id_wykonawcy INT FOREIGN KEY (id_wykonawcy) REFERENCES postac(id_postaci), zawartosc VARCHAR(40),dodatek VARCHAR(50) DEFAULT 'papryczka chilli',id_konsumenta INT FOREIGN KEY (id_konsumenta) REFERENCES postac (id_postaci);
+
 INSERT INTO przetwory (id_przetworu,rok_produkcji,id_wykonawcy,zawartosc,dodatek,id_konsumenta) VALUES ('0',DEFAULT,'1','Bigos',DEFAULT,'1');
 -----------------------------------------------------------------------------
 
