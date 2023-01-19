@@ -16,7 +16,7 @@ UPDATE postac SET Pesel='77541269845' WHERE id_postaci=6;
 UPDATE postac SET Pesel='85749685221' WHERE id_postaci=9;
 ALTER TABLE postac ADD PRIMARY KEY(Pesel);
 ALTER TABLE postac MODIFY rodzaj enum('wiking','ptak','kobieta','syrena');
-INSERT INTO postac VALUES ('98745632181','10','Gertruda Nieszczera','syrena',DEFAULT,'2000-04-04','22',DEFAULT);
+INSERT INTO postac VALUES ('98745632181','10','Gertruda Nieszczera','syrena','2000-05-04','22',NULL,NULL);
 ==============================================================================================
 ----------------------------Zadanie 3-------------------------------------------------------
 UPDATE postac SET statek='CzarnaPerla' WHERE nazwa LIKE '%a%';
